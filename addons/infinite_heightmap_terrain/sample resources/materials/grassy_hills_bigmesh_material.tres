@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://dh41vl6trqolb"]
+
+[ext_resource type="Shader" uid="uid://xtiqpn4k1ugu" path="res://addons/infiniteterrain/sample resources/textures/land.tres" id="1_fv4wv"]
+[ext_resource type="Texture2D" uid="uid://0wly7tx2c14o" path="res://addons/infiniteterrain/sample resources/textures/terrain_rim_effect.tres" id="2_84bt4"]
+[ext_resource type="Texture2D" uid="uid://frvmksduv0vn" path="res://addons/infiniteterrain/sample resources/textures/terrain_coloring_threshold.tres" id="3_etiwi"]
+[ext_resource type="Texture2D" uid="uid://dkaiqr0jqyuqh" path="res://addons/infiniteterrain/sample resources/textures/smoothcracks_normals.tres" id="4_uw68y"]
+[ext_resource type="Texture2D" uid="uid://birtens83job" path="res://addons/infiniteterrain/sample resources/textures/popbumps_normals.tres" id="5_opc5d"]
+
+[resource]
+render_priority = -2
+shader = ExtResource("1_fv4wv")
+shader_parameter/VertexDip = true
+shader_parameter/rim_distance = 300.0
+shader_parameter/fresnel_power = 9.26
+shader_parameter/DFMin = 230.0
+shader_parameter/DFMax = 280.0
+shader_parameter/ruff = 0.8
+shader_parameter/UVScale = Vector2(20, 20)
+shader_parameter/curve_vtx_10 = ExtResource("3_etiwi")
+shader_parameter/curve_frg_17 = ExtResource("2_84bt4")
+shader_parameter/tex_frg_3 = ExtResource("4_uw68y")
+shader_parameter/tex_frg_8 = ExtResource("5_opc5d")

@@ -1,0 +1,6 @@
+[gd_resource type="CurveTexture" load_steps=2 format=3 uid="uid://frvmksduv0vn"]
+
+[ext_resource type="Curve" uid="uid://bsm1rahmksl6y" path="res://addons/infiniteterrain/sample resources/textures/terrain_coloring_threshold_curve.tres" id="1_vrr3f"]
+
+[resource]
+curve = ExtResource("1_vrr3f")
