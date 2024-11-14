@@ -271,8 +271,6 @@ func generate_bigmesh(chunk: Vector2i):
 			var coord_3d = Vector3(x_coord, nval * terrain_height_multiplier, z_coord)
 			var norm1 = _generate_noise_normal(coord_2d)
 			var uv1 = Vector2(progress_x, progress_z) / uv_scale
-			var steepness1 = clampf(Vector3.UP.dot(norm1), 0.0, 1.0)
-			steepness1 = terrain_color_steepness_curve.sample_baked(steepness1)
 			
 			
 			var coord_2d_next_x = Vector2(x_coord_next, z_coord)
@@ -282,8 +280,6 @@ func generate_bigmesh(chunk: Vector2i):
 			var coord_3d_next_x = Vector3(x_coord_next, nval_next_x * terrain_height_multiplier, z_coord)
 			var norm2 = _generate_noise_normal(coord_2d_next_x)
 			var uv2 = Vector2(progress_x_next, progress_z) / uv_scale
-			var steepness2 = clampf(Vector3.UP.dot(norm2), 0.0, 1.0)
-			steepness2 = terrain_color_steepness_curve.sample_baked(steepness2)
 			
 			
 			var coord_2d_next_z = Vector2(x_coord, z_coord_next)
@@ -293,8 +289,6 @@ func generate_bigmesh(chunk: Vector2i):
 			var coord_3d_next_z = Vector3(x_coord, nval_next_z * terrain_height_multiplier, z_coord_next)
 			var norm3 = _generate_noise_normal(coord_2d_next_z)
 			var uv3 = Vector2(progress_x, progress_z_next) / uv_scale
-			var steepness3 = clampf(Vector3.UP.dot(norm3), 0.0, 1.0)
-			steepness3 = terrain_color_steepness_curve.sample_baked(steepness3)
 			
 			
 			var coord_2d_next_xz = Vector2(x_coord_next, z_coord_next)
@@ -304,8 +298,6 @@ func generate_bigmesh(chunk: Vector2i):
 			var coord_3d_next_xz = Vector3(x_coord_next, nval_next_xz * terrain_height_multiplier, z_coord_next)
 			var norm4 = _generate_noise_normal(coord_2d_next_xz)
 			var uv4 = Vector2(progress_x_next, progress_z_next) / uv_scale
-			var steepness4 = clampf(Vector3.UP.dot(norm4), 0.0, 1.0)
-			steepness4 = terrain_color_steepness_curve.sample_baked(steepness4)
 			
 			
 			if mountain_mode:
@@ -321,6 +313,18 @@ func generate_bigmesh(chunk: Vector2i):
 			var color4: Color
 			
 			if two_colors:
+				var steepness1 = clampf(Vector3.UP.dot(norm1), 0.0, 1.0)
+				steepness1 = terrain_color_steepness_curve.sample_baked(steepness1)
+				
+				var steepness2 = clampf(Vector3.UP.dot(norm2), 0.0, 1.0)
+				steepness2 = terrain_color_steepness_curve.sample_baked(steepness2)
+				
+				var steepness3 = clampf(Vector3.UP.dot(norm3), 0.0, 1.0)
+				steepness3 = terrain_color_steepness_curve.sample_baked(steepness3)
+				
+				var steepness4 = clampf(Vector3.UP.dot(norm4), 0.0, 1.0)
+				steepness4 = terrain_color_steepness_curve.sample_baked(steepness4)
+				
 				color1 = terrain_cliff_color.lerp(terrain_level_color, steepness1)
 				color2 = terrain_cliff_color.lerp(terrain_level_color, steepness2)
 				color3 = terrain_cliff_color.lerp(terrain_level_color, steepness3)
@@ -454,29 +458,21 @@ func generate_terrain_mesh(chunk: Vector2i):
 				var coord_3d = Vector3(x_coord, nval * terrain_height_multiplier, z_coord)
 				var norm1 = _generate_noise_normal(coord_2d)
 				var uv1 = Vector2(progress_x, progress_z) / uv_scale
-				var steepness1 = clampf(Vector3.UP.dot(norm1), 0.0, 1.0)
-				steepness1 = terrain_color_steepness_curve.sample_baked(steepness1)
 				
 				
 				var coord_3d_next_x = Vector3(x_coord_next, nval_next_x * terrain_height_multiplier, z_coord)
 				var norm2 = _generate_noise_normal(coord_2d_next_x)
 				var uv2 = Vector2(progress_x_next, progress_z) / uv_scale
-				var steepness2 = clampf(Vector3.UP.dot(norm2), 0.0, 1.0)
-				steepness2 = terrain_color_steepness_curve.sample_baked(steepness2)
 				
 				
 				var coord_3d_next_z = Vector3(x_coord, nval_next_z * terrain_height_multiplier, z_coord_next)
 				var norm3 = _generate_noise_normal(coord_2d_next_z)
 				var uv3 = Vector2(progress_x, progress_z_next) / uv_scale
-				var steepness3 = clampf(Vector3.UP.dot(norm3), 0.0, 1.0)
-				steepness3 = terrain_color_steepness_curve.sample_baked(steepness3)
 				
 				
 				var coord_3d_next_xz = Vector3(x_coord_next, nval_next_xz * terrain_height_multiplier, z_coord_next)
 				var norm4 = _generate_noise_normal(coord_2d_next_xz)
 				var uv4 = Vector2(progress_x_next, progress_z_next) / uv_scale
-				var steepness4 = clampf(Vector3.UP.dot(norm4), 0.0, 1.0)
-				steepness4 = terrain_color_steepness_curve.sample_baked(steepness4)
 				
 				
 				var color1: Color
@@ -485,6 +481,18 @@ func generate_terrain_mesh(chunk: Vector2i):
 				var color4: Color
 				
 				if two_colors:
+					var steepness1 = clampf(Vector3.UP.dot(norm1), 0.0, 1.0)
+					steepness1 = terrain_color_steepness_curve.sample_baked(steepness1)
+					
+					var steepness2 = clampf(Vector3.UP.dot(norm2), 0.0, 1.0)
+					steepness2 = terrain_color_steepness_curve.sample_baked(steepness2)
+					
+					var steepness3 = clampf(Vector3.UP.dot(norm3), 0.0, 1.0)
+					steepness3 = terrain_color_steepness_curve.sample_baked(steepness3)
+					
+					var steepness4 = clampf(Vector3.UP.dot(norm4), 0.0, 1.0)
+					steepness4 = terrain_color_steepness_curve.sample_baked(steepness4)
+					
 					color1 = terrain_cliff_color.lerp(terrain_level_color, steepness1)
 					color2 = terrain_cliff_color.lerp(terrain_level_color, steepness2)
 					color3 = terrain_cliff_color.lerp(terrain_level_color, steepness3)
