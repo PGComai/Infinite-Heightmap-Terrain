@@ -1,6 +1,8 @@
 # Infinite-Heightmap-Terrain
  A terrain generator for Godot that loads in chunks like Minecraft
 
+ [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y0NJZLS)
+
 ## How to use
 Copy the addons folder into the res:// directory of your project, or install through the Godot Asset Library.
 
